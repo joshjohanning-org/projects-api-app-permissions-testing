@@ -31,7 +31,7 @@ jobs:
         run: |
           echo "days=${days}" >> "$GITHUB_OUTPUT"
 
-      - name: find issues past ${{ steps.days.outputs.days }}
+      - name: find issues past ${{ env.days }} days
         run: echo "${{ steps.days.outputs.days }}"
 
       - uses: actions/create-github-app-token@v1

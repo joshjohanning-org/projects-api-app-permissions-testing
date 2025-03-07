@@ -42,3 +42,5 @@ jobs:
                 }
               }
             }'
+
+            gh project item-list 24 --owner "joshjohanning-org"

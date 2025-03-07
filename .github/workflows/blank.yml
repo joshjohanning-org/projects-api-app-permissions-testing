@@ -19,11 +19,20 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    env:
+      days: 45
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+
+      - id: days
+        run: |
+          echo "days=${days}" >> "$GITHUB_OUTPUT"
+
+      - name: find issues past ${{ steps.days.outputs.days }}
+        run: echo "${{ steps.days.outputs.days }}"
 
       - uses: actions/create-github-app-token@v1
         id: app-token

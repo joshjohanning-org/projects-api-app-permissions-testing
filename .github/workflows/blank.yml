@@ -34,10 +34,10 @@ jobs:
       - name: find issues past ${{ env.days-to-alert }} days # ${{ steps.days.outputs.days }} also works
         run: echo "${{ steps.days.outputs.days }}"
 
-      - uses: actions/create-github-app-token@v1
+      - uses: actions/create-github-app-token@v3
         id: app-token
         with:
-          app-id: 1170300
+          client-id: 1170300
           private-key: ${{ secrets.PRIVATE_KEY }}
       - name: query graphql for project
         env:
